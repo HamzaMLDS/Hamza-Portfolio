@@ -12,6 +12,7 @@ body {
     color: white;
     line-height: 1.6;
 }
+
 .emoji {
     font-size: 100px;
     animation: wave 2s infinite;
@@ -25,6 +26,7 @@ body {
     80% { transform: rotate(-10deg); }
     100% { transform: rotate(0deg); }
 }
+
 .container {
     width: 80%;
     margin: auto;
@@ -38,6 +40,7 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 #projects h2 {
     text-align: center;
     margin-top: 20px;
@@ -98,6 +101,7 @@ body {
     background-color: #45A29E;
     color: #1F2833;
 }
+
 .text-content {
     flex: 1;
     margin-right: 20px;
@@ -112,19 +116,19 @@ body {
 
 /* Responsive Design for Flexbox */
 @media (max-width: 768px) {
-    .flex-container {
+    .flex-container1 {
         flex-direction: column;
-        text-align: center;
+        align-items: center; /* Center the content */
     }
 
     .text-content {
         margin-right: 0;
-        margin-bottom: 20px;
+        margin-top: 20px; /* Add some space above the text */
     }
 
     .image-content img {
-        max-width: 80%;
-        margin: 0 auto;
+        max-width: 80%; /* Adjust image size for smaller screens */
+        margin: 0 auto; /* Center the image */
     }
 }
 
@@ -182,8 +186,11 @@ nav .nav-links a:hover {
 .burger {
     display: none;
     cursor: pointer;
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    position: relative; /* Allow positioning of lines */
 }
-
+/* Adjust the lines within the burger menu */
 .burger div {
     width: 25px;
     height: 3px;
@@ -197,18 +204,24 @@ footer {
     background-color: cornflowerblue;
     color: white;
     padding: 20px 0;
-    text-align: left;
+    text-align: center; /* Center the footer text */
     border-radius: 10px;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+}
+
+footer .social-links {
+    display: flex;
+    flex-direction: row; /* Stack links vertically */
+    align-items: center; /* Center links */
 }
 
 footer .social-links a {
-    margin: 0 10px;
+    margin: 10px 0; /* Space between links */
     display: inline-block;
     height: 40px;
     width: 40px;
@@ -226,8 +239,15 @@ footer .social-links a:hover img {
 }
 
 footer p {
-    margin: 0;
+    margin: 10px 0 0; /* Space above the paragraph */
     font-size: 0.9em;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    footer .footer-container {
+        padding: 10px; /* Adjust padding for mobile */
+    }
 }
 
 /* Responsive Design for Navigation */
@@ -239,14 +259,16 @@ footer p {
         top: 60px;
         background-color: rgba(0, 128, 128, 0.9);
         flex-direction: column;
-        align-items: center;
+        align-items: left;
         width: 50%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
+        display: none; /* Hide menu by default */
     }
 
     nav .nav-links.nav-active {
         transform: translateX(0);
+        display: flex; /* Show menu when active */
     }
 
     nav .nav-links li {
@@ -316,10 +338,28 @@ footer p {
     gap: 20px;
 }
 
+/* About Me Image */
 .about-image {
     max-width: 100%;
     height: auto;
     border-radius: 50%; /* Optional: Makes the image circular */
     display: block;
     margin: 0 auto;
+}
+
+/* Responsive Design for About Me Page */
+@media (max-width: 768px) {
+    .about-image {
+        order: -1; /* Moves the image above the text */
+        max-width: 80%; /* Adjust image size for mobile */
+    }
+
+    .skillset, .tools {
+        flex-direction: row; /* Stack items on smaller screens */
+        align-items: center;
+    }
+    .logo-container {
+        width: 100px; /* Smaller size for mobile */
+        height: 80px; /* Smaller size for mobile */
+    }
 }
